@@ -11,9 +11,9 @@ if (!GITHUB_TOKEN) {
   );
 }
 
-const headers = {
-  Authorization: GITHUB_TOKEN ? `Bearer ${GITHUB_TOKEN}` : '',
+const headers: HeadersInit = {
   'X-GitHub-Api-Version': '2022-11-28',
+  ...(GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {}),
 };
 
 class GitHubAPIError extends Error {
