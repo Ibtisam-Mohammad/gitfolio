@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base defaults (Brutalist) */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 50 96% 54%;
+    /* Yellow */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 21 82% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 0%;
+    --input: 240 5.9% 90%;
+    --ring: 50 96% 54%;
+    --radius: 0rem;
+    --shadow-style: 4px 4px 0px 0px #000;
+  }
+}
+
+/* --- THEME: BRUTALIST (Default) --- */
+.theme-brutalist {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --primary: 50 96% 54%;
+  /* Yellow */
+  --primary-foreground: 0 0% 0%;
+  --border: 0 0% 0%;
+  --radius: 0rem;
+  --shadow-style: 4px 4px 0px 0px #000;
+}
+
+/* --- THEME: MINIMALIST --- */
+.theme-minimalist {
+  --background: 0 0% 98%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  /* Black */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --radius: 0.5rem;
+  --shadow-style: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+/* --- THEME: NEON (Cyber) --- */
+.theme-neon {
+  --background: 224 71% 4%;
+  /* Dark Blue/Black */
+  --foreground: 210 40% 98%;
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+  --primary: 142 76% 36%;
+  /* Neon Green */
+  --primary-foreground: 355.7 100% 97.3%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 142 76% 36%;
+  --radius: 0rem;
+  --shadow-style: 0 0 10px 2px rgba(34, 197, 94, 0.5);
+  /* Glowing Green */
+}
+
+/* --- THEME: PLAYFUL --- */
+.theme-playful {
+  --background: 300 100% 99%;
+  /* Very light pink */
+  --foreground: 320 20% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 320 20% 20%;
+  --primary: 320 70% 60%;
+  /* Hot Pink */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 260 60% 95%;
+  --secondary-foreground: 320 20% 20%;
+  --muted: 260 30% 96%;
+  --muted-foreground: 320 10% 50%;
+  --accent: 260 60% 90%;
+  --accent-foreground: 320 20% 20%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 320 30% 90%;
+  --input: 320 30% 90%;
+  --ring: 320 70% 60%;
+  --radius: 1.5rem;
+  /* Large rounded corners */
+  --shadow-style: 4px 4px 0px 0px #ffb6c1;
+  /* Soft pink shadow */
+}
+
+/* --- THEME: PROFESSIONAL --- */
+.theme-professional {
+  --background: 210 40% 98%;
+  /* Off-white */
+  --foreground: 222 47% 11%;
+  /* Navy */
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --primary: 222 47% 11%;
+  /* Navy Blue */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.25rem;
+  --shadow-style: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn-brutal {
+    @apply bg-primary text-primary-foreground font-bold py-3 px-6 border-2 border-border shadow-[var(--shadow-style)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all rounded-[var(--radius)];
+  }
+
+  .card-brutal {
+    @apply bg-card text-card-foreground border-2 border-border shadow-[var(--shadow-style)] rounded-[var(--radius)];
+  }
+}
+
+@layer utilities {
+  .pdf-generating .print\:hidden {
+    display: none;
+  }
+
+  .is-preview .print\:hidden.preview-controls {
+    display: none;
+  }
+
+  .theme-grid-background {
+    @apply bg-background;
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
