@@ -60,7 +60,7 @@ export async function getGithubUserAndRepos(username: string): Promise<{ user: G
 
 export function analyzeLanguages(repos: GitHubRepo[]): Omit<LanguageData, 'color'>[] {
   if (!repos || repos.length === 0) return [];
-  
+
   const langCount = repos.reduce((acc, repo) => {
     if (repo.language) {
       acc[repo.language] = (acc[repo.language] || 0) + 1;
