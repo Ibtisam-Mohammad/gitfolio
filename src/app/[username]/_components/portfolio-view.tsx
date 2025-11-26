@@ -137,6 +137,10 @@ function PortfolioViewContent({
         onEnhance={getAiAnalysis}
         allCareerEntries={allCareerEntries}
         views={views}
+        showProjects={true}
+        showSummary={true}
+        showCareerJourney={true}
+        showSkills={true}
       />
 
       <FloatingActionButtons

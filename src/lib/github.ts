@@ -46,7 +46,10 @@ export async function getGithubUserAndRepos(username: string): Promise<{ user: G
     ]);
 
     // Filter out forked repos and only include those owned by the user
-    const ownedRepos = repos.filter(repo => !repo.fork && repo.owner.login === username);
+    const ownedRepos = repos.filter(repo => !repo.fork && repo.owner.login.toLowerCase() === username.toLowerCase());
+
+    console.log(`[GitHub] Fetched ${repos.length} repos for ${username}`);
+    console.log(`[GitHub] Filtered to ${ownedRepos.length} owned, non-forked repos`);
 
     return { user, repos: ownedRepos };
   } catch (error) {
