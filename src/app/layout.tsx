@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { AuthProvider } from '@/components/auth-provider';
 
 export const metadata: Metadata = {
-  title: 'Gitfolio - Your AI-Powered Developer Portfolio',
+  title: 'DevFolio-AI - Your AI-Powered Developer Portfolio',
   description: 'Generate a personalized developer portfolio instantly from your GitHub profile.',
 };
 

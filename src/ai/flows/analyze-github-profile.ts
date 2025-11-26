@@ -40,6 +40,7 @@ const AnalyzeGithubProfileOutputSchema = z.object({
   summary: z.string().describe('A professional summary generated based on the user\'s GitHub contributions and resume.'),
   workExperience: z.array(WorkExperienceSchema).describe('An array of work experience entries.'),
   education: z.array(EducationSchema).describe('An array of education entries.'),
+  projectSummaries: z.record(z.string()).describe('A map of repository names to AI-generated summaries, specifically for repos with missing descriptions.'),
 });
 export type AnalyzeGithubProfileOutput = z.infer<typeof AnalyzeGithubProfileOutputSchema>;
 
@@ -59,7 +60,11 @@ const prompt = ai.definePrompt({
       - Look for company names, job titles, and employment dates.
       - Look for university names, degrees, and attendance dates.
       - Format dates as "MMMM yyyy" (e.g., "August 2021"). For current roles, use "Present" as the end date.
+      - Format dates as "MMMM yyyy" (e.g., "August 2021"). For current roles, use "Present" as the end date.
       - If no career data can be found, return empty arrays. Do not invent information.
+  3.  **Generate Project Summaries:** For the top repositories listed in the data, if a repository has a missing or very short description, generate a concise, engaging 1-sentence summary based on its name, language, and any available context.
+      - Return a map where the key is the repository name and the value is the generated summary.
+      - Only include repositories that need a better description.
 
   Prioritize the resume text for accuracy when it is available.
 
@@ -73,7 +78,7 @@ const prompt = ai.definePrompt({
   {{{resumeText}}}
   {{/if}}
 
-  Return the full analysis as a single JSON object with the summary, workExperience, and education fields.
+  Return the full analysis as a single JSON object with the summary, workExperience, education, and projectSummaries fields.
   `,
 });
 

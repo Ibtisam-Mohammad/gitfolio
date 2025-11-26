@@ -25,15 +25,17 @@ const languageColors: { [lang: string]: string } = {
 };
 
 
-function ProjectCard({ repo }: { repo: GitHubRepo }) {
+function ProjectCard({ repo, aiSummary }: { repo: GitHubRepo; aiSummary?: string }) {
   const langColor = repo.language ? languageColors[repo.language] || languageColors.Default : languageColors.Default;
-  
+
   return (
     <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="block h-full group">
       <Card className="flex flex-col h-full hover:border-primary/80 transition-all duration-300 bg-card/50 hover:bg-card hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0px_0px_#000]">
         <CardHeader>
           <CardTitle className="text-xl font-headline group-hover:text-primary transition-colors">{repo.name}</CardTitle>
-          <CardDescription className="flex-grow pt-2 min-h-[3rem]">{repo.description || 'No description provided.'}</CardDescription>
+          <CardDescription className="flex-grow pt-2 min-h-[3rem]">
+            {repo.description || aiSummary || 'No description provided.'}
+          </CardDescription>
         </CardHeader>
         <CardFooter className="mt-auto flex justify-between text-sm text-muted-foreground">
           <div className="flex items-center gap-4">
@@ -58,38 +60,42 @@ function ProjectCard({ repo }: { repo: GitHubRepo }) {
   );
 }
 
-export function ProjectsSection({ repos }: { repos: GitHubRepo[] }) {
+export function ProjectsSection({ repos, projectSummaries }: { repos: GitHubRepo[]; projectSummaries?: Record<string, string> }) {
   const sortedRepos = [...repos]
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 6);
 
   if (sortedRepos.length === 0) {
     return (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 font-headline">
-              <FolderGit2 className="w-6 h-6 text-primary" />
-              Top Projects
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">No public repositories found for this user.</p>
-          </CardContent>
-        </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 font-headline">
+            <FolderGit2 className="w-6 h-6 text-primary" />
+            Top Projects
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground">No public repositories found for this user.</p>
+        </CardContent>
+      </Card>
     );
   }
-  
+
   return (
     <div className="space-y-4">
-        <div className="flex items-center gap-2">
-            <FolderGit2 className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl font-bold font-headline">Top Projects</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="flex items-center gap-2">
+        <FolderGit2 className="w-7 h-7 text-primary" />
+        <h2 className="text-3xl font-bold font-headline">Top Projects</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {sortedRepos.map(repo => (
-            <ProjectCard key={repo.id} repo={repo} />
+          <ProjectCard
+            key={repo.id}
+            repo={repo}
+            aiSummary={projectSummaries?.[repo.name]}
+          />
         ))}
-        </div>
+      </div>
     </div>
   );
 }

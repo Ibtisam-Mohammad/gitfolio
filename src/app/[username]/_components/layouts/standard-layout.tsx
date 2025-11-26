@@ -75,7 +75,7 @@ export function StandardLayout({
                             isPreviewing={isPreview}
                         />
                     )}
-                    {showProjects && <ProjectsSection repos={repos} />}
+                    {showProjects && <ProjectsSection repos={repos} projectSummaries={aiData?.projectSummaries} />}
                     <ExternalProjectsSection isPreviewing={isPreview} />
                     <ArticlesSection isPreviewing={isPreview} />
                 </div>

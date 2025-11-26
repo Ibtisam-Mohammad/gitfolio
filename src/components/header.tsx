@@ -45,7 +45,7 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center px-4">
         <Link href="/" className="flex items-center gap-2">
           <Icons.logo className="h-7 w-7 text-primary" />
-          <span className="font-bold text-lg font-headline">Gitfolio</span>
+          <span className="font-bold text-lg font-headline">DevFolio-AI</span>
         </Link>
         <div className="ml-auto flex items-center gap-2">
           <ThemeSwitcher />

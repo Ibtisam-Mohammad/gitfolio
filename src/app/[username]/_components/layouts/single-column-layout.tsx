@@ -86,7 +86,7 @@ export function SingleColumnLayout({
                     }}
                 />
 
-                {showProjects && <ProjectsSection repos={repos} />}
+                {showProjects && <ProjectsSection repos={repos} projectSummaries={aiData?.projectSummaries} />}
 
                 <ExternalProjectsSection isPreviewing={isPreview} />
 
